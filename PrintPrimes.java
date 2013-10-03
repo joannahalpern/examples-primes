@@ -2,15 +2,13 @@ public class PrintPrimes {
   int numberOfPrimes;
   int RR;
   int CC;
-  int WW;
   int ORDMAX;
   int listOfPrimes[];
 
-  public PrintPrimes(int numberOfPrimes, int RR, int CC, int WW, int ORDMAX) {
+  public PrintPrimes(int numberOfPrimes, int RR, int CC, int ORDMAX) {
     this.numberOfPrimes   = numberOfPrimes;
     this.RR  = RR;
     this.CC  = CC;
-    this.WW  = WW;
     this.ORDMAX = ORDMAX;
     this.listOfPrimes = new int[numberOfPrimes + 1];
   }
