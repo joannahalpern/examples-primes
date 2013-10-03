@@ -33,7 +33,7 @@ public class PrintPrimes {
   private void calculateOddPrimes() {
       boolean jIsPrime;
       int n;
-      int MULT[] = new int[ORDMAX + 1];
+      int nonPrimes[] = new int[ORDMAX + 1];
 
       int j = 1;
       int ORD = 2;
@@ -45,14 +45,14 @@ public class PrintPrimes {
           if (j == SQUARE) {
             ORD = ORD + 1;
             SQUARE = listOfPrimes[ORD] * listOfPrimes[ORD];
-            MULT[ORD - 1] = j;
+            nonPrimes[ORD - 1] = j;
           }
           n = 2;
           jIsPrime = true;
           while (n < ORD && jIsPrime) {
-            while (MULT[n] < j)
-              MULT[n] = MULT[n] + listOfPrimes[n] + listOfPrimes[n];
-            if (MULT[n] == j)
+            while (nonPrimes[n] < j)
+              nonPrimes[n] = nonPrimes[n] + listOfPrimes[n] + listOfPrimes[n];
+            if (nonPrimes[n] == j)
               jIsPrime = false;
             n = n + 1;
           }
