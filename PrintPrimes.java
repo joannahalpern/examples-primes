@@ -34,32 +34,32 @@ public class PrintPrimes {
 
   private void calculateOddPrimes() {
       boolean jIsPrime;
-      int N;
+      int n;
       int MULT[] = new int[ORDMAX + 1];
 
-      int J = 1;
+      int j = 1;
       int ORD = 2;
       int SQUARE = 9;
 
       for(int primesFoundSoFar = 2; primesFoundSoFar <= numberOfPrimes; primesFoundSoFar++) {
         do {
-          J = J + 2;
-          if (J == SQUARE) {
+          j = j + 2;
+          if (j == SQUARE) {
             ORD = ORD + 1;
             SQUARE = listOfPrimes[ORD] * listOfPrimes[ORD];
-            MULT[ORD - 1] = J;
+            MULT[ORD - 1] = j;
           }
-          N = 2;
+          n = 2;
           jIsPrime = true;
-          while (N < ORD && jIsPrime) {
-            while (MULT[N] < J)
-              MULT[N] = MULT[N] + listOfPrimes[N] + listOfPrimes[N];
-            if (MULT[N] == J)
+          while (n < ORD && jIsPrime) {
+            while (MULT[n] < j)
+              MULT[n] = MULT[n] + listOfPrimes[n] + listOfPrimes[n];
+            if (MULT[n] == j)
               jIsPrime = false;
-            N = N + 1;
+            n = n + 1;
           }
         } while (!jIsPrime);
-        listOfPrimes[primesFoundSoFar] = J;
+        listOfPrimes[primesFoundSoFar] = j;
       }
     }
 
@@ -81,6 +81,5 @@ public class PrintPrimes {
           PAGEOFFSET = PAGEOFFSET + RR * CC;
         }
     }
-}
-
-					 
+}				 
+//test commit
