@@ -36,20 +36,20 @@ public class PrintPrimes {
       int nonPrimes[] = new int[ORDMAX + 1];
 
       int j = 1;
-      int ORD = 2;
+      int order = 2;
       int SQUARE = 9;
 
       for(int primesFoundSoFar = 2; primesFoundSoFar <= numberOfPrimes; primesFoundSoFar++) {
         do {
           j = j + 2;
           if (j == SQUARE) {
-            ORD = ORD + 1;
-            SQUARE = listOfPrimes[ORD] * listOfPrimes[ORD];
-            nonPrimes[ORD - 1] = j;
+            order = order + 1;
+            SQUARE = listOfPrimes[order] * listOfPrimes[order];
+            nonPrimes[order - 1] = j;
           }
           n = 2;
           jIsPrime = true;
-          while (n < ORD && jIsPrime) {
+          while (n < order && jIsPrime) {
             while (nonPrimes[n] < j)
               nonPrimes[n] = nonPrimes[n] + listOfPrimes[n] + listOfPrimes[n];
             if (nonPrimes[n] == j)
