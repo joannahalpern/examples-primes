@@ -54,7 +54,7 @@ public class PrintPrimes {
       }
     }
 
-	private static void findNonPrimes(){
+	public static void findNonPrimes(){
 		n = 2;
 		while (n < order && jIsPrime) {
             while (nonPrimes[n] < currentNumber)
@@ -73,16 +73,20 @@ public class PrintPrimes {
           System.out.println("The First " + numberOfPrimes +
                                " Prime Numbers --- Page " + PAGENUMBER);
           System.out.println("");
-          for (int ROWOFFSET = PAGEOFFSET; ROWOFFSET < PAGEOFFSET + numberOfRows; ROWOFFSET++){
+          formatToPrint();
+          System.out.println("\f");
+          PAGENUMBER = PAGENUMBER + 1;
+          PAGEOFFSET = PAGEOFFSET + numberOfRows * numberOfColumns;
+        }
+    }
+    
+    public void formatToPrint(){
+    	for (int ROWOFFSET = PAGEOFFSET; ROWOFFSET < PAGEOFFSET + numberOfRows; ROWOFFSET++){
             for (int C = 0; C < numberOfColumns;C++)
               if (ROWOFFSET + C * numberOfRows <= numberOfPrimes)
                 System.out.format("%10d", listOfPrimes[ROWOFFSET + C * numberOfRows]);
             System.out.println("");
           }
-          System.out.println("\f");
-          PAGENUMBER = PAGENUMBER + 1;
-          PAGEOFFSET = PAGEOFFSET + numberOfRows * numberOfColumns;
-        }
     }
 }				 
 //test commit
