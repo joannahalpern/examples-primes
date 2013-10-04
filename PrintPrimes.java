@@ -47,19 +47,24 @@ public class PrintPrimes {
             square = listOfPrimes[order] * listOfPrimes[order];
             nonPrimes[order - 1] = currentNumber;
           }
-          n = 2;
           jIsPrime = true;
-          while (n < order && jIsPrime) {
-            while (nonPrimes[n] < currentNumber)
-              nonPrimes[n] = nonPrimes[n] + listOfPrimes[n] + listOfPrimes[n];
-            if (nonPrimes[n] == currentNumber)
-              jIsPrime = false;
-            n = n + 1;
-          }
+          findNonPrimes();
         } while (!jIsPrime);
         listOfPrimes[primesFoundSoFar] = currentNumber;
       }
     }
+
+	private static void findNonPrimes(){
+		n = 2;
+		while (n < order && jIsPrime) {
+            while (nonPrimes[n] < currentNumber)
+              nonPrimes[n] = nonPrimes[n] + listOfPrimes[n] + listOfPrimes[n];
+            if (nonPrimes[n] == currentNumber)
+                jIsPrime = false;
+              n = n + 1;
+		}
+	}
+		
 
     public void printPrimes() {
         int PAGENUMBER = 1;
